@@ -27,6 +27,7 @@ public class Page {
 			}
 		}
 
+
 //		Scanner sc = new Scanner(System.in);
 //
 //		int nPerPage = 7;
@@ -34,13 +35,21 @@ public class Page {
 //		while (true) {
 //
 //			System.out.println("몇 개의 게시물을 표시할까요?(정수로 쓰세요.)  종료.(0)");
-//			int result = sc.nextInt();
-//			
-//			if(result==0) {
+//			String inputString = sc.nextLine();
+//			//if exit? -> exit
+//			if(inputString.contentEquals("exit")) {
 //				System.out.println("끝");
 //				break;
 //			}
+//			//String -> int
+//			int result = Integer.parseInt(inputString);
 //			
+////			if(result==0) {
+////				System.out.println("끝");
+////				break;
+////			}
+//		
+//			//calculate page
 //			int 결과 = result / nPerPage;
 //			if (result % nPerPage != 0)
 //				결과 = result / nPerPage + 1;
