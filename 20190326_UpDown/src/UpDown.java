@@ -7,7 +7,7 @@ public class UpDown {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
 
-		int rNumber = random.nextInt(100);
+		int rNumber = random.nextInt(100)+1;
 		int count=0;
 
 //		System.out.println(rNumber);
