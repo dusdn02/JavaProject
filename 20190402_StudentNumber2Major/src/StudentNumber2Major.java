@@ -3,20 +3,6 @@ import java.util.Scanner;
 public class StudentNumber2Major {
 
 	public static void main(String[] args) {
-//		String major[][] = {{"뉴미디어소프트웨어과"
-//		
-//			Scanner sc = new Scanner(System.in);
-//			
-//			System.out.println("학번을 입력해주세요 >>");
-//			String input = sc.nextLine();
-//			
-//			String grade = input.substring(0,1);
-//			String classNum = input.substring(1,2);
-//			
-//			int gradNum = Integer.parseInt(grade);
-//			int classNumber = Integer.parseInt(classNum);
-//			
-//			int classNumber2 = (classNumber - 1)/2;
 		
 		int year, clas;
 		Scanner sc = new Scanner(System.in);
