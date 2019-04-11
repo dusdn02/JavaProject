@@ -8,14 +8,18 @@ public class Nsum {
 		System.out.println("숫자를 입력하세요>>");
 		String num= sc.nextLine();
 		
+		nSum(sum, num);
+
+	}
+
+	private static void nSum(int sum, String num) {
 		for(int i=0; i<num.length(); i++) {
 			char n = num.charAt(i);
 		
-			sum+=n - '0';
+			sum += n - '0';
 		}
 		
 		System.out.println(sum);
-
 	}
 
 }
