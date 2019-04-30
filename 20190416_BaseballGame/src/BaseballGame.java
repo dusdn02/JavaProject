@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class BaseballGame {
 
 	public static void main(String[] args) {
-		int SIZE = 3;
+		int SIZE = 5;
 		int ball = 0, strike = 0;
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
@@ -18,19 +18,19 @@ public class BaseballGame {
 //			ran[1] = random.nextInt(10);
 //			ran[2] = random.nextInt(10);
 //		}
-		
-		for(int i=0; i<SIZE;i++) {
+
+		for (int i = 0; i < SIZE; i++) {
 			ran[i] = random.nextInt(10);
-			for(int j=0; j<i;j++) {
-				if(ran[i]==ran[j])
+			for (int j = 0; j < i; j++) {
+				if (ran[i] == ran[j])
 					i--;
 			}
-		}
+		} // 세자리 숫자가 중복되지 않도록
 
 //		for(int i=0; i<SIZE;i++)
 //			System.out.print(ran[i]);
 
-		System.out.println("세자리 숫자를 입력하세요. ex)1 2 3");
+		System.out.println(SIZE + "자리 숫자를 입력하세요.");
 
 		while (true) {
 			for (int i = 0; i < SIZE; i++)
@@ -38,9 +38,9 @@ public class BaseballGame {
 
 //		for(int i=0; i<SIZE;i++)
 //			System.out.print(num[i]);
-			
-			strike=0;
-			ball=0;
+
+			strike = 0;
+			ball = 0;
 
 			for (int i = 0; i < SIZE; i++) {
 				for (int j = 0; j < SIZE; j++) {
@@ -53,11 +53,11 @@ public class BaseballGame {
 				}
 			}
 			if (strike == 0 && ball == 0) {
-				System.out.println("아웃!!"); 
-			} else if(strike==SIZE){
+				System.out.println("아웃!!");
+			} else if (strike == SIZE) {
 				System.out.println("정답입니다.");
 				break;
-			}else {
+			} else {
 				System.out.println(strike + "S" + ball + "B");
 			}
 		}
