@@ -8,7 +8,7 @@ public class BaseballGame {
 		int ball = 0, strike = 0;
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
-
+//temp
 		int ran[] = new int[SIZE];
 		int num[] = new int[SIZE];
 
