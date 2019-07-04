@@ -1,0 +1,30 @@
+package mancala;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class ex {
+	public static void main(String[] args) {
+		Dimension dim = new Dimension(1400,600);
+		
+		JFrame frame = new JFrame("mancala");
+		frame.setLocation(300, 200);
+		frame.setPreferredSize(dim);
+		
+		DrawPanel drawpanel = new DrawPanel();
+		
+		frame.add(drawpanel);
+		frame.pack();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
+class DrawPanel extends JPanel{
+		public void paint(Graphics g) {
+			super.paint(g);
+			g.drawOval(50,50,200,200);
+		}
+	}

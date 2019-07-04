@@ -1,0 +1,13 @@
+
+import javax.swing.*;
+import java.awt.*;
+
+public class BorderLayoutEx {
+	BorderLayoutEx(){
+			setTitle("BorderLayoutEx ¿¹Á¦");
+		}
+	public static void main(String[] args) {
+		new BorderLayoutEx();
+	}
+
+}
