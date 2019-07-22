@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-
 public class CheckBoxItemEventEx extends JFrame{
 	JCheckBox [] fruits = new JCheckBox [3];
 	String [] names = {"사과", "배", "체리"};
