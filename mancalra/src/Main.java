@@ -24,6 +24,8 @@ public class Main {
 		JButton Double_use = new JButton("2ÀÎ¿ë");
 		
 		
+		CardLayout Screen_Change = new CardLayout();
+		
 //		menu.setLayout(null);
 //		
 //		menu.add(Single_use);
