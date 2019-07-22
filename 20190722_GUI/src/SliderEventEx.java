@@ -28,9 +28,9 @@ public class SliderEventEx extends JFrame{
 		slider[1].setForeground(Color.GREEN);
 		slider[2].setForeground(Color.BLUE);
 		
-		contentPane.add(slider[0]);
-		contentPane.add(slider[1]);
-		contentPane.add(slider[2]);
+//		contentPane.add(slider[0]);
+//		contentPane.add(slider[1]);
+//		contentPane.add(slider[2]);
 		colorlabel.setOpaque(true); 
 		colorlabel.setBackground( 
 				new Color(slider[0].getValue(),slider[1].getValue(), slider[2].getValue()));
