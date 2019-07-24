@@ -1,23 +1,32 @@
-package JDBC;
+package _0724_JDBC;
 
 import java.sql.*;
+import java.util.Scanner;
 
 public class StudentUpdate {
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
+		System.out.println("dept >>");
+		String dept = sc.next();
+		System.out.println("id >>");
+		String id = sc.next();
+		
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver").newInstance();// 필수
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javap", "root", "mirim2");// 필수
 			System.out.println("DB 연결 완료");
 			String sql = "update student set dept = ? where id = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "컴퓨터공학");
-			pstmt.setString(2, "1012019");
+			pstmt.setString(1, dept);
+			pstmt.setString(2, id);
 			
 			pstmt.executeUpdate();
 			
-			sql = "select * from student where id = '1012014'";
+			sql = "select * from student where id = ?";
+			pstmt.setString(1, id);
 			pstmt = conn.prepareStatement(sql);
 			ResultSet srs = pstmt.executeQuery();
 			System.out.println("Name   Dept      id");

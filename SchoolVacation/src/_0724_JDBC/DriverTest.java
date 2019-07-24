@@ -1,4 +1,4 @@
-package JDBC;
+package _0724_JDBC;
 
 import java.sql.*;
 

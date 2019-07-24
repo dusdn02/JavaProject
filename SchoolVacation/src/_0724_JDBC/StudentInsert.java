@@ -1,26 +1,36 @@
-package JDBC;
+package _0724_JDBC;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Scanner;
 
-public class StudentDelete {
+public class StudentInsert {
 	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
+		System.out.println("name >>");
+		String name = sc.next();
+		System.out.println("dept >>");
+		String dept = sc.next();
+		System.out.println("id >>");
+		String id = sc.next();
+		
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver").newInstance();// 필수
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javap", "root", "mirim2");// 필수
 			System.out.println("DB 연결 완료");
-			String sql = "delete from student where id = ?";
+			String sql = "insert into student (name, dept, id) values(?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "1012019");
+			pstmt.setString(1, name);
+			pstmt.setString(2, dept);
+			pstmt.setString(3, id);
 			
 			pstmt.executeUpdate();
-			
-			sql = "select * from student where id = '1012019'";
+
+			sql = "select * from student where id = ?";
+			pstmt.setString(3, id);
 			pstmt = conn.prepareStatement(sql);
 			ResultSet srs = pstmt.executeQuery();
 			System.out.println("Name   Dept      id");
