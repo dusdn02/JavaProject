@@ -10,8 +10,11 @@ public class StudentUpdate {
 			Class.forName("org.gjt.mm.mysql.Driver").newInstance();// 필수
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javap", "root", "mirim2");// 필수
 			System.out.println("DB 연결 완료");
-			String sql = "update student set dept = '컴퓨터공학' where id = '1012014'";
+			String sql = "update student set dept = ? where id = ?";
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "컴퓨터공학");
+			pstmt.setString(2, "1012019");
+			
 			pstmt.executeUpdate();
 			
 			sql = "select * from student where id = '1012014'";

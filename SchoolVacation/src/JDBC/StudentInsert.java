@@ -14,11 +14,12 @@ public class StudentInsert {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "김소연");
 			pstmt.setString(2, "컴퓨터공학");
-			pstmt.setString(3, "1012019");
+			pstmt.setString(3, "1012017");
 			
 			pstmt.executeUpdate();
 
-			sql = "select * from student where id = '1012019'";
+			sql = "select * from student where id = ?";
+			pstmt.setString(3, "1012017");
 			pstmt = conn.prepareStatement(sql);
 			ResultSet srs = pstmt.executeQuery();
 			System.out.println("Name   Dept      id");

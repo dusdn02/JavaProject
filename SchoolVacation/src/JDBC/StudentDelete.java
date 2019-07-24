@@ -14,11 +14,13 @@ public class StudentDelete {
 			Class.forName("org.gjt.mm.mysql.Driver").newInstance();// 필수
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javap", "root", "mirim2");// 필수
 			System.out.println("DB 연결 완료");
-			String sql = "delete from student where id = '1012014'";
+			String sql = "delete from student where id = ?";
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "1012019");
+			
 			pstmt.executeUpdate();
 			
-			sql = "select * from student where id = '1012014'";
+			sql = "select * from student where id = '1012019'";
 			pstmt = conn.prepareStatement(sql);
 			ResultSet srs = pstmt.executeQuery();
 			System.out.println("Name   Dept      id");
