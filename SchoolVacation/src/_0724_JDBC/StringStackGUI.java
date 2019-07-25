@@ -42,6 +42,7 @@ public class StringStackGUI extends JFrame {
 		In.add(array);
 		In.add(artf);
 		In.add(arInput);
+		arInput.addActionListener(new ArrayInput());
 		In.add(data);
 		In.add(datf);
 		In.add(daInput);
@@ -60,9 +61,8 @@ public class StringStackGUI extends JFrame {
 	
 	class ArrayInput implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			 JButton btn = (JButton) e.getSource();
-			 if(btn.getText().equals("ют╥б"))
-				 n = artf;
+			n = Integer.parseInt(artf.getText());
+				
 		}
 				   
 	}
