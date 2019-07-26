@@ -124,7 +124,6 @@ public class MemberDB extends JFrame implements ActionListener {
 			System.exit(0);
 		} else if (e.getSource() == save) { 	
 			    String name = textName.getText();
-			    //String name2 = new String(name.getBytes(), "ISO-8859-1");
 			    String pass = textPass.getText();
 			    String num1 = textNum1.getText();
 			    String num2 = textNum2.getText();

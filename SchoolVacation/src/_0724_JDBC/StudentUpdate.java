@@ -26,6 +26,7 @@ public class StudentUpdate {
 			pstmt.executeUpdate();
 			
 			sql = "select * from student where id = ?";
+			
 			pstmt.setString(1, id);
 			pstmt = conn.prepareStatement(sql);
 			ResultSet srs = pstmt.executeQuery();
