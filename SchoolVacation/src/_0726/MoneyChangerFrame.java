@@ -10,7 +10,8 @@ public class MoneyChangerFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(new MyPanel());
 		
-		setSize(300,300);
+		setSize(320,300);
+		setLocation(800,300);
 		setVisible(true);
 	}
 	
