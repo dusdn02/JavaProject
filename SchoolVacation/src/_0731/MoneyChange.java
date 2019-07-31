@@ -1,16 +1,17 @@
-package _0726;
+package _0731;
+
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class MoneyChangerFrame extends JFrame {
+public class MoneyChange extends JFrame {
 	int [] moneyI = {50000, 10000, 1000, 500, 100, 50, 10, 1};
 	String [] moneyT = {"오만원", "만원", "천원", "500원", "100원", "50원", "10원", "1원"};
 	JTextField [] tf = new JTextField [8];
 	Container contentPane;
 	
-	public MoneyChangerFrame() {
+	public MoneyChange() {
 		setTitle("Money Changer");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane=getContentPane();
@@ -73,6 +74,6 @@ public class MoneyChangerFrame extends JFrame {
 	
 	
 	public static void main(String[] args) {
-		new MoneyChangerFrame();
+		new MoneyChange();
 	}
 }
