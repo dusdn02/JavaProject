@@ -87,7 +87,7 @@ public class MemberDB extends JFrame implements ActionListener {
 				
 		lbNum1 = new JLabel("ÁÖ¹Î¹øÈ£1");			
 		lbNum1.setHorizontalAlignment(JLabel.CENTER);				
-		textNum1 = new JTextField(20); 			
+		textNum1 = new JTextField(20); 		
 		lbNum2 = new JLabel("ÁÖ¹Î¹øÈ£2");			
 		lbNum2.setHorizontalAlignment(JLabel.CENTER);				
 		textNum2 = new JTextField(20); 

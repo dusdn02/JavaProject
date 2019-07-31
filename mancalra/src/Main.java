@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.geom.*;
 import java.awt.event.*;
 
+
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -12,13 +14,8 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
 
-		JFrame frame = new JFrame("MANCALA");
-		JPanel menu = new JPanel();
-		JPanel game = new JPanel();
-		frame.setPreferredSize(new Dimension(1900, 900));
+		GameBoard gb = new GameBoard();
 
-		ImageIcon board = new ImageIcon("src/GameBoard/ngb.jpg");
-		JLabel imageLabel = new JLabel(board);// 게임보드
 
 		JButton Single_use = new JButton("1인용");
 		JButton Double_use = new JButton("2인용");
@@ -35,48 +32,8 @@ public class Main {
 		
 		//게임 방법 프레임
 
-		JButton[] ball = new JButton[13];// 구멍들
-		for (int i = 0; i < 13; i++) {
-			if (i == 6)
-				continue;
-			ball[i] = new JButton();
-		}//공들이 있는 항아리들 선언
-		
-		game.setLayout(null);
-		ball[0].setBounds(380, 338, 90, 40);
-		game.add(ball[0]);
-		ball[1].setBounds(590, 338, 90, 40);
-		game.add(ball[1]);
-		ball[2].setBounds(798, 338, 90, 40);
-		game.add(ball[2]);
-		ball[3].setBounds(1020, 338, 90, 40);
-		game.add(ball[3]);
-		ball[4].setBounds(1230, 338, 90, 40);
-		game.add(ball[4]);
-		ball[5].setBounds(1441, 338, 90, 40);
-		game.add(ball[5]);
-		ball[7].setBounds(385, 813, 90, 40);
-		game.add(ball[7]);
-		ball[8].setBounds(595, 813, 90, 40);
-		game.add(ball[8]);
-		ball[9].setBounds(794, 813, 90, 40);
-		game.add(ball[9]);
-		ball[10].setBounds(1025, 813, 90, 40);
-		game.add(ball[10]);
-		ball[11].setBounds(1235, 813, 90, 40);
-		game.add(ball[11]);
-		ball[12].setBounds(1452, 813, 90, 40);
-		game.add(ball[12]);
-		imageLabel.setBounds(0, 200, 1910, 800);
-		game.add(imageLabel);
 
-		frame.add(game);
-
-		frame.pack();
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
+	
 		int[] p = { 4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0 };
 		int turn = 0;// 순서
 		int tmp = 0;// 옮길 구슬
