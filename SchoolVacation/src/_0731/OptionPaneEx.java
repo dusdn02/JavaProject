@@ -36,6 +36,7 @@ public class OptionPaneEx extends JFrame {
 			add(confirmBtn);
 			add(messageBtn);
 			add(tf);
+			
 			inputBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					String name = JOptionPane.showInputDialog("이름을 입력하세요.");
@@ -43,6 +44,7 @@ public class OptionPaneEx extends JFrame {
 						tf.setText(name);
 				}
 			});
+	
 			confirmBtn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					int result = JOptionPane.showConfirmDialog(null, "계속할 것입니까?", "Confirm", JOptionPane.YES_NO_OPTION);
