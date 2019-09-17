@@ -1,18 +1,16 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class GameBoard extends JFrame{
+public class GameBoard extends JPanel{
+	JButton[] ball;
 	
 	Container contentPane;
-	public GameBoard() {
-		setTitle("MANCALA");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		contentPane = getContentPane();
+	public GameBoard(int num) {
 		
 		ImageIcon board = new ImageIcon("src/GameBoard/ngb.jpg");
 		JLabel imageLabel = new JLabel(board);// 霸烙焊靛
 		
-		JButton[] ball = new JButton[13];// 备港甸
+		ball = new JButton[13];// 备港甸
 		for (int i = 0; i < 13; i++) {
 			if (i == 6)
 				continue;
@@ -50,8 +48,8 @@ public class GameBoard extends JFrame{
 //		add(contentPane);
 		
 		
-		setSize(1900,900);
-		setVisible(true);
+//		setSize(1900,900);
+//		setVisible(true);
 	}
 	
 	
