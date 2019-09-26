@@ -15,7 +15,9 @@ public class Double_use extends JPanel {
 	int n = 0;
 	int choice;
 
-	Double_use(Main main) {
+	Double_use(test t) {
+		
+//		super.setLayout(main.cards);
 
 		JButton[] ball = new JButton[13];// ±¸¸Ûµé
 		for (int i = 0; i < 13; i++) {

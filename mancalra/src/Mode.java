@@ -11,7 +11,9 @@ public class Mode extends JPanel{
 	private JButton Single_b;
 	private JButton Double_b;
 	
-	Mode(Main main){
+	Mode(test t){
+//		super.setLayout(main.card);
+		
 		System.out.println("mode 시작");
 		setLayout(null);
 		Single_b = new JButton("1인용");
@@ -19,7 +21,7 @@ public class Mode extends JPanel{
 		
 		Single_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				main.Secondchange("1인용");
+//				main.Secondchange("1인용");
 			}
 		});
 		
@@ -28,7 +30,7 @@ public class Mode extends JPanel{
 	
 		Double_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				main.Secondchange("2인용");
+//				main.Secondchange("2인용");
 			}
 		});
 		

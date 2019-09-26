@@ -16,8 +16,8 @@ public class Single_use extends JPanel {
 	int n = 0;
 	int choice;
 
-	Single_use(Main main) {
-		
+	Single_use(test t) {
+//		super.setLayout(main.card);
 
 		JButton[] ball = new JButton[13];// ±¸¸Ûµé
 		for (int i = 0; i < 13; i++) {

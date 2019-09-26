@@ -1,4 +1,7 @@
+
 import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -8,64 +11,55 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Main extends JFrame {
-	public Main main;
-	public Menu menu;
-	public Mode mode;
+public class test extends JFrame {
+	public test t = null;
+	Container contentPane;
+	public Way way;
+	public Mode mode = null;
 	public Single_use single_use = null;
 	public Double_use double_use = null;
 	public GameBoard GameBoard = null;
-	private JButton Start;
-	private JButton Way;
-	CardLayout card;
-	JPanel jp;
+	public Start start = null;
+	public CardLayout card = new CardLayout();
+	public JPanel cards;
 
-	public Main() {
-		
-		setLayout(null);
-		
-		jp = new JPanel(card);
-		card = new CardLayout();
-//		this.setLayout(card);
-		System.out.println("asdfadgsfafgrw4wred");
-		jp.add(mode, "mode");
-		jp.add(single_use, "single_use");
-		jp.add(double_use, "double_use");
-		jp.add(menu, "menu");
-
-//		add(cards);
-
-		Start = new JButton("게임 시작");
-		Start.setBounds(100, 100, 100, 50);
-
-		add(Start);
-		Start.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				CardLayout cardLayout = (CardLayout) cards.getLayout();
-				card.show(jp, "mode");
-//				Firstchange("게임 시작");
-			}
-		});
-
-		Way = new JButton("게임 방법");
-		Way.setBounds(100, 300, 100, 50);
-
-		add(Way);
-		Way.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//		CardLayout cardLayout = (CardLayout) card.getLayout();
-				card.show(jp, "menu");
-//				Firstchange("게임 방법");
-			}
-		});
-		System.out.println("Firstchange 완료");
-		
-		this.add(jp);
-
+	public test() {
+		setTitle("MANCALA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(150, 100);
 		setSize(1500, 800);
 		setVisible(true);
+//		contentPane = getContentPane();
+//		this.setLayout(card);
+		setLayout(null);
+		
+		start = new Start(t);
+		mode = new Mode(t);
+		single_use = new Single_use(t);
+		double_use = new Double_use(t);
+		way = new Way(t);
+		
+//		getContentPane().setLayout(new CardLayout());
+		
+		cards = new JPanel(card);
+	//	card = new CardLayout();
+		System.out.println("*********");
+		cards.add(start, "start");
+		System.out.println("*********");
+		cards.add(mode, "mode");
+		cards.add(single_use, "single_use");
+		cards.add(double_use, "double_use");
+		cards.add(way, "way");
+
+		System.out.println("asdfadgsfafgrw4wred");
+//		add(cards);
+
+
+		System.out.println("Firstchange 완료");
+		
+//		contentPane.add(jp);
+		getContentPane().add(cards);
+		
 	}
 
 //	public void Firstchange(String panelName) {
@@ -107,13 +101,13 @@ public class Main extends JFrame {
 		Random random = new Random();
 
 //		GameBoard gb = new GameBoard();
-		System.out.println("asdfadgsfafgrw4wred");
-		Main main = new Main();
-		System.out.println("asdfadgsfafgrw4wred");
-		main.menu = new Menu(main);
-		main.mode = new Mode(main);
-		main.single_use = new Single_use(main);
-		main.double_use = new Double_use(main);
+		System.out.println("test 시작");
+		test t = new test();
+		System.out.println("test 완료");
+		t.way = new Way(t);
+		t.mode = new Mode(t);
+		t.single_use = new Single_use(t);
+		t.double_use = new Double_use(t);
 
 //		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		main.setLocation(650, 200);
