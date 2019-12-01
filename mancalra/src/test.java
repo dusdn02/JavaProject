@@ -9,17 +9,18 @@ import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class test extends JFrame {
-	public test t = null;
+//	public test t = null;
 	Container contentPane;
 	public Way way;
 	public Mode mode = null;
 	public Single_use single_use = null;
 	public Double_use double_use = null;
 	public GameBoard GameBoard = null;
-	public Start start = null;
+	public Start start;
 	public CardLayout card = new CardLayout();
 	public JPanel cards;
 
@@ -29,71 +30,35 @@ public class test extends JFrame {
 		setLocation(150, 100);
 		setSize(1500, 800);
 		setVisible(true);
-//		contentPane = getContentPane();
-//		this.setLayout(card);
-		setLayout(null);
+		setLayout(card);
 		
-		start = new Start(t);
-		mode = new Mode(t);
-		single_use = new Single_use(t);
-		double_use = new Double_use(t);
-		way = new Way(t);
+//		start = new Start(this);
+//		mode = new Mode(this);
+//		single_use = new Single_use(this);
+//		double_use = new Double_use(this);
+//		way = new Way(this);
+		this.add(start, "start");
 		
-//		getContentPane().setLayout(new CardLayout());
 		
-		cards = new JPanel(card);
-	//	card = new CardLayout();
-		System.out.println("*********");
-		cards.add(start, "start");
-		System.out.println("*********");
-		cards.add(mode, "mode");
-		cards.add(single_use, "single_use");
-		cards.add(double_use, "double_use");
-		cards.add(way, "way");
+		this.add(mode, "mode");
+//		cards.add(single_use, "single_use");
+//		cards.add(double_use, "double_use");
+//		cards.add(way, "way");
 
-		System.out.println("asdfadgsfafgrw4wred");
+
 //		add(cards);
 
-
-		System.out.println("Firstchange 완료");
+		card.show(this, "start");
 		
-//		contentPane.add(jp);
-		getContentPane().add(cards);
+
+		
+//		JButton j = new JButton("12345");
+//		j.setBounds(100, 100, 100, 50);
+//		add(j);
 		
 	}
 
-//	public void Firstchange(String panelName) {
-//		if (panelName.equals("게임 시작")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(mode);
-//			revalidate();
-//			repaint();
-//			System.out.println("---게임 시작---");
-//		}else if(panelName.equals("게임 방법")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(menu);
-//			revalidate();
-//			repaint();
-//			System.out.println("---게임 방법---");
-//		}
-//		
-////		cards.next(this.getContentPane());
-//	}
-//	public void Secondchange(String panelName) {
-//		if (panelName.equals("1인용")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(single_use);
-//			revalidate();
-//			repaint();
-//			System.out.println("---1인용---");
-//		}else if(panelName.equals("2인용")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(double_use);
-//			revalidate();
-//			repaint();
-//			System.out.println("---2인용---");
-//		}
-//	}
+
 
 	public static void main(String[] args) {
 
@@ -104,15 +69,18 @@ public class test extends JFrame {
 		System.out.println("test 시작");
 		test t = new test();
 		System.out.println("test 완료");
-		t.way = new Way(t);
-		t.mode = new Mode(t);
-		t.single_use = new Single_use(t);
-		t.double_use = new Double_use(t);
+//		t.start = new Start(t);
+//		System.out.println("start 완료");
+//		t.card.show(t.cards, "start");
+//		t.way = new Way(t);
+//		t.mode = new Mode(t);
+//		t.single_use = new Single_use(t);
+//		t.double_use = new Double_use(t);
 
-//		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		main.setLocation(650, 200);
-//		main.setSize(1900, 900);
-//		main.setVisible(true);
+//		t.add(t.start);
+		
+		
+		
 
 	}// main
 

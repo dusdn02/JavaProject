@@ -1,4 +1,9 @@
+
 import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -6,100 +11,32 @@ import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Main extends JFrame {
-	public Main main;
-	public Menu menu;
+public class Main {
+	public Way way;
 	public Mode mode;
-	public Single_use single_use = null;
-	public Double_use double_use = null;
-	public GameBoard GameBoard = null;
-	private JButton Start;
-	private JButton Way;
-	CardLayout card;
-	JPanel jp;
+	public Single_use single_use;
+	public Double_use double_use;
+	public GameBoard GameBoard;
+	public Start start;
+	public End end;
+	Font f = new Font("돋음", Font.BOLD, 20);
 
 	public Main() {
-		
-		setLayout(null);
-		
-		jp = new JPanel(card);
-		card = new CardLayout();
-//		this.setLayout(card);
-		System.out.println("asdfadgsfafgrw4wred");
-		jp.add(mode, "mode");
-		jp.add(single_use, "single_use");
-		jp.add(double_use, "double_use");
-		jp.add(menu, "menu");
 
-//		add(cards);
+		start = new Start(this);
+		mode = new Mode(this);
+		single_use = new Single_use(this);
+		double_use = new Double_use(this);
+		way = new Way(this);
+		end = new End(this);
+//		add(start, "start");
 
-		Start = new JButton("게임 시작");
-		Start.setBounds(100, 100, 100, 50);
+		start.setVisible(true);
 
-		add(Start);
-		Start.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				CardLayout cardLayout = (CardLayout) cards.getLayout();
-				card.show(jp, "mode");
-//				Firstchange("게임 시작");
-			}
-		});
-
-		Way = new JButton("게임 방법");
-		Way.setBounds(100, 300, 100, 50);
-
-		add(Way);
-		Way.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//		CardLayout cardLayout = (CardLayout) card.getLayout();
-				card.show(jp, "menu");
-//				Firstchange("게임 방법");
-			}
-		});
-		System.out.println("Firstchange 완료");
-		
-		this.add(jp);
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocation(150, 100);
-		setSize(1500, 800);
-		setVisible(true);
 	}
-
-//	public void Firstchange(String panelName) {
-//		if (panelName.equals("게임 시작")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(mode);
-//			revalidate();
-//			repaint();
-//			System.out.println("---게임 시작---");
-//		}else if(panelName.equals("게임 방법")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(menu);
-//			revalidate();
-//			repaint();
-//			System.out.println("---게임 방법---");
-//		}
-//		
-////		cards.next(this.getContentPane());
-//	}
-//	public void Secondchange(String panelName) {
-//		if (panelName.equals("1인용")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(single_use);
-//			revalidate();
-//			repaint();
-//			System.out.println("---1인용---");
-//		}else if(panelName.equals("2인용")) {
-//			getContentPane().removeAll();
-//			getContentPane().add(double_use);
-//			revalidate();
-//			repaint();
-//			System.out.println("---2인용---");
-//		}
-//	}
 
 	public static void main(String[] args) {
 
@@ -107,27 +44,53 @@ public class Main extends JFrame {
 		Random random = new Random();
 
 //		GameBoard gb = new GameBoard();
-		System.out.println("asdfadgsfafgrw4wred");
-		Main main = new Main();
-		System.out.println("asdfadgsfafgrw4wred");
-		main.menu = new Menu(main);
-		main.mode = new Mode(main);
-		main.single_use = new Single_use(main);
-		main.double_use = new Double_use(main);
+		System.out.println("test 시작");
+		Main m = new Main();
+		System.out.println("test 완료");
 
-//		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		main.setLocation(650, 200);
-//		main.setSize(1900, 900);
-//		main.setVisible(true);
+//		m.card.show(m.main, "start");
 
 	}// main
 
-	public static boolean No_ball_Endgame(int[] p, int i, int com_sum, int start, int end) {
+	public void FirstChange(String name) {
+		if (name.equals("mode")) {
+			start.setVisible(false);
+			mode.setVisible(true);
+		} else if (name.equals("menu")) {
+			way.setVisible(true);
+		} else
+			System.out.println("fc안됨");
+	}
+
+	public void SecondChange(String name) {
+		mode.setVisible(false);
+		if (name.equals("one")) {
+			single_use.setVisible(true);
+		} else if (name.equals("two")) {
+			double_use.setVisible(true);
+		} else
+			System.out.println("sc안됨");
+	}
+
+	public void ThirdChange(String name) {
+		if(name.equals("1"))
+			single_use.setVisible(false);
+		else if(name.equals("2"))
+			double_use.setVisible(false);
+		end.setVisible(true);
+	}
+
+	public void LastChange(String name) {
+		end.setVisible(false);
+		if (name.equals("restart"))
+			start.setVisible(true);
+
+	}
+
+	public static boolean No_ball_Endgame(int[] p, int com_sum, int start, int end) {
 		int sum = 0;
-		for (i = start; i < end; i++) {
-			com_sum += p[i];
-			if (i < end - 1)
-				sum += p[i];
+		for (int i = start; i < end; i++) {
+			sum += p[i];
 		}
 		if (sum == 0)
 			return true;
@@ -136,6 +99,11 @@ public class Main extends JFrame {
 	}
 
 	public static void Get_ball(int[] p, int choice, int i, int n) {
+		if (n == 6 && i + choice > n)
+			return;
+		else if (n == 13 && i + choice < 6)
+			return;
+
 		if (p[i + choice - 1] == 1 && p[12 - (i + choice - 1)] != 0) {// && (i + choice - 1) < n
 			int steal_ball = 0;
 			steal_ball = p[i + choice - 1] + p[12 - (i + choice - 1)];
@@ -146,6 +114,7 @@ public class Main extends JFrame {
 	}
 
 	public static boolean Check_position(int[] p, int choice) {
+//		System.out.println("choice:"+choice);
 		if (p[choice] != 0 && choice < 6 && choice > -1) {
 			return true;
 		} else {
