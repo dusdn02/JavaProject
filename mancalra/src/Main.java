@@ -1,5 +1,3 @@
-
-import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.Frame;
@@ -19,7 +17,6 @@ public class Main {
 	public Mode mode;
 	public Single_use single_use;
 	public Double_use double_use;
-	public GameBoard GameBoard;
 	public Start start;
 	public End end;
 	Font f = new Font("돋음", Font.BOLD, 20);
@@ -32,7 +29,6 @@ public class Main {
 		double_use = new Double_use(this);
 		way = new Way(this);
 		end = new End(this);
-//		add(start, "start");
 
 		start.setVisible(true);
 
@@ -43,13 +39,7 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
 
-//		GameBoard gb = new GameBoard();
-		System.out.println("test 시작");
 		Main m = new Main();
-		System.out.println("test 완료");
-
-//		m.card.show(m.main, "start");
-
 	}// main
 
 	public void FirstChange(String name) {
@@ -73,10 +63,8 @@ public class Main {
 	}
 
 	public void ThirdChange(String name) {
-		if(name.equals("1"))
-			single_use.setVisible(false);
-		else if(name.equals("2"))
-			double_use.setVisible(false);
+		single_use.setVisible(false);
+		double_use.setVisible(false);
 		end.setVisible(true);
 	}
 
@@ -114,27 +102,12 @@ public class Main {
 	}
 
 	public static boolean Check_position(int[] p, int choice) {
-//		System.out.println("choice:"+choice);
 		if (p[choice] != 0 && choice < 6 && choice > -1) {
 			return true;
 		} else {
 			System.out.println("그 곳엔 공이 없습니다..!! 다시입력하세요!!");
 			return false;
 		}
-	}
-
-	public static int Print_Game(int[] p, int n) {
-		for (int i = 12; i > 6; i--)
-			System.out.print("  " + p[i] + "  ");
-		System.out.println();
-		System.out.println(p[13] + "                            " + p[6]);
-		for (int i = 0; i < 6; i++)
-			System.out.print("  " + p[i] + "  ");
-		System.out.println();
-		for (int i = 0; i < 14; i++)
-			n += p[i];
-		System.out.println("======================================================================");
-		return n;
 	}
 
 	public static int Insert_ball(int[] p, int tmp, int choice, int n) {

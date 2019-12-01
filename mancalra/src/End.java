@@ -6,48 +6,66 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class End extends JFrame{
+public class End extends JFrame {
 	JButton restart;
 	JButton exit;
+	JLabel whowin;
 	ImageIcon backm;
-	
-	End(Main m){
+
+	End(Main m) {
 		setTitle("MANCALA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(250, 130);
 		setSize(1005, 680);
+		
 		restart = new JButton("다시하기");
 		exit = new JButton("그만하기");
+		whowin = new JLabel();
 		
+		switch(m.single_use.who) {
+		case 1:
+			whowin.setText("WIN");
+			break;
+		case 2:
+			whowin.setText("LOSE");
+			break;
+		}
+		switch(m.double_use.who) {
+		case 3:
+			whowin.setText("Player1 WIN");
+			break;
+		case 4:
+			whowin.setText("Player2 WIN");
+			break;
+		}
+	
 		backm = new ImageIcon("src/images/mainBack.jpg");
 		JLabel back = new JLabel(backm);
-		
+
 		setLayout(null);
-		
+
 		back.setSize(1000, 626);
 		add(back);
-		
+	
 		restart.setBounds(300, 400, 150, 100);
+		restart.setFont(m.f);
 		restart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				m.LastChange("restart");
 			}
 		});
-		
+	
 		exit.setBounds(500, 400, 150, 100);
+		exit.setFont(m.f);
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				m.LastChange("end");
 			}
 		});
-		
-		add(restart);
-		add(exit);
-		
-	}
 	
-	public static void main(String[] args) {
-		new End(null);
+		back.add(restart);
+		back.add(exit);
+		back.add(whowin);
+	
 	}
-
 }

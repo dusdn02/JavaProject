@@ -24,7 +24,7 @@ public class Single_use extends JFrame {
 	int choice;
 	int check;
 	int k;
-	int who;
+	int who=0;
 	int color;
 	JLabel mine;
 	JLabel com;
@@ -46,9 +46,7 @@ public class Single_use extends JFrame {
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 
-			Color c = null;
-
-			c = Color.BLACK;
+			Color c = Color.BLACK;
 			g.setColor(c);
 			g.drawOval(190, 200, 170, 170);
 			g.setColor(c);
@@ -89,9 +87,7 @@ public class Single_use extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(panel);
 		setLocation(150, 100);
-//		setVisible(true);
 		setSize(1480, 800);
-		
 
 		m1 = new JLabel(Integer.toString(p[0]));
 		m2 = new JLabel(Integer.toString(p[1]));
@@ -164,25 +160,25 @@ public class Single_use extends JFrame {
 		add(turn_label);
 
 		System.out.println("1인용 입니다.");
-		
+
 		addMouseListener(new MouseListener() {
-			
+
 			@Override
 			public void mouseReleased(MouseEvent e) {
 			}
-			
+
 			@Override
 			public void mousePressed(MouseEvent e) {
 			}
-			
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 			}
-			
+
 			@Override
 			public void mouseEntered(MouseEvent e) {
 			}
-			
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int x = e.getX();
@@ -190,7 +186,6 @@ public class Single_use extends JFrame {
 //				System.out.println("x:"+x+"  y:"+y);
 				choice = -1;
 				color = 0;
-				
 
 				if (y >= 400 && y <= 570) {
 					if (x >= 190 && x <= 360) {
@@ -222,14 +217,9 @@ public class Single_use extends JFrame {
 
 				if (turn % 2 == 0) {// 내 차례
 					if (Main.No_ball_Endgame(p, com_sum, 0, 7) == true) {
-						System.out.println("끝나라");
 						who = 1;
 						m.ThirdChange("1");
 					}
-					turn_label.setText("내차례");
-					add(turn_label);
-					repaint();
-
 					int i;
 					System.out.println("내차례");
 					color = 1;
@@ -241,20 +231,12 @@ public class Single_use extends JFrame {
 						turn--;
 					}
 					Main.Get_ball(p, choice, i, 6);
-
-
+					repaint();
 				} else {// 컴퓨터 차례
-					
 					if (Main.No_ball_Endgame(p, com_sum, 7, 13) == true) {
-						System.out.println("끝나라");
 						who = 2;
 						m.ThirdChange("1");
 					}
-
-					turn_label.setText("컴퓨터 차례");
-					add(turn_label);
-					repaint();
-
 					int i = 1;
 					System.out.println("컴퓨터 차례");
 					color = 2;
@@ -263,21 +245,16 @@ public class Single_use extends JFrame {
 						if (p[choice] != 0)
 							break;
 					}
-					System.out.println("컴퓨터choice:" + choice);
 					tmp = p[choice];
 					p[choice] = 0;
 					i = Main.Insert_ball(p, tmp, choice, 6);
 					if ((i + choice) == 14) {
 						turn--;
-//							continue;
 					} // 자기 항아리에 마지막 공이 들어오면 한번더
 					Main.Get_ball(p, choice, i, 13);
+					
+					repaint();
 
-//						turn_label.setText("내차례");
-//						add(turn_label);
-//						repaint();
-//							break;
-					// 자신쪽 작은 항아리에 공이 없으면 종료
 				}
 
 				if (turn % 2 == 0) {
@@ -310,12 +287,8 @@ public class Single_use extends JFrame {
 
 				repaint();
 				turn++;
-				
+
 			}
-			
 		});
-
 	}
-
-
 }
