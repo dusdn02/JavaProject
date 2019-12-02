@@ -21,7 +21,6 @@ public class Mode extends JFrame {
 		backm = new ImageIcon("src/images/mainBack.jpg");
 		JLabel back = new JLabel(backm);
 
-		System.out.println("mode 시작");
 		setLayout(null);
 
 		back.setSize(1000, 626);
@@ -49,7 +48,6 @@ public class Mode extends JFrame {
 
 		back.add(Single_b);
 		back.add(Double_b);
-		System.out.println("Mode 완료");
 	}
 
 }

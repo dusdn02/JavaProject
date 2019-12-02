@@ -18,7 +18,7 @@ public class Main {
 	public Single_use single_use;
 	public Double_use double_use;
 	public Start start;
-	public End end;
+	public Last last;
 	Font f = new Font("돋음", Font.BOLD, 20);
 
 	public Main() {
@@ -28,7 +28,7 @@ public class Main {
 		single_use = new Single_use(this);
 		double_use = new Double_use(this);
 		way = new Way(this);
-		end = new End(this);
+		last = new Last(this);
 
 		start.setVisible(true);
 
@@ -65,11 +65,11 @@ public class Main {
 	public void ThirdChange(String name) {
 		single_use.setVisible(false);
 		double_use.setVisible(false);
-		end.setVisible(true);
+		last.setVisible(true);
 	}
 
 	public void LastChange(String name) {
-		end.setVisible(false);
+		last.setVisible(false);
 		if (name.equals("restart"))
 			start.setVisible(true);
 
@@ -100,16 +100,7 @@ public class Main {
 			p[n] += steal_ball;
 		}
 	}
-
-	public static boolean Check_position(int[] p, int choice) {
-		if (p[choice] != 0 && choice < 6 && choice > -1) {
-			return true;
-		} else {
-			System.out.println("그 곳엔 공이 없습니다..!! 다시입력하세요!!");
-			return false;
-		}
-	}
-
+	
 	public static int Insert_ball(int[] p, int tmp, int choice, int n) {
 		int i;
 		for (i = 1; i <= tmp; i++) {

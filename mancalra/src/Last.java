@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -6,17 +7,24 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class End extends JFrame {
+public class Last extends JFrame {
 	JButton restart;
 	JButton exit;
 	JLabel whowin;
 	ImageIcon backm;
 
-	End(Main m) {
+	Last(Main m) {
 		setTitle("MANCALA");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(250, 130);
 		setSize(1005, 680);
+		backm = new ImageIcon("src/images/mainBack.jpg");
+		JLabel back = new JLabel(backm);
+		
+		setLayout(null);
+		
+		back.setSize(1000, 626);
+		add(back);
 		
 		restart = new JButton("다시하기");
 		exit = new JButton("그만하기");
@@ -38,14 +46,9 @@ public class End extends JFrame {
 			whowin.setText("Player2 WIN");
 			break;
 		}
-	
-		backm = new ImageIcon("src/images/mainBack.jpg");
-		JLabel back = new JLabel(backm);
-
-		setLayout(null);
-
-		back.setSize(1000, 626);
-		add(back);
+		
+		whowin.setFont(new Font("돋음",Font.BOLD, 30));
+		whowin.setBounds(200, 20, 300, 40);
 	
 		restart.setBounds(300, 400, 150, 100);
 		restart.setFont(m.f);
