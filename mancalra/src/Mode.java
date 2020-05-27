@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,6 +21,10 @@ public class Mode extends JFrame {
 		setSize(1005, 680);
 		backm = new ImageIcon("src/images/mainBack.jpg");
 		JLabel back = new JLabel(backm);
+		
+		JLabel mancala = new JLabel("MANCALA GAME");
+		mancala.setFont(new Font("µ¸À½", Font.BOLD, 90));
+		mancala.setBounds(120, 100, 800, 200);
 
 		setLayout(null);
 
@@ -48,6 +53,7 @@ public class Mode extends JFrame {
 
 		back.add(Single_b);
 		back.add(Double_b);
+		back.add(mancala);
 	}
 
 }

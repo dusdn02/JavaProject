@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +13,6 @@ import javax.swing.JPanel;
 
 public class Double_use extends JFrame {
 	private MyPanel panel = new MyPanel();
-	Random random = new Random();
 	int[] p = new int[] { 4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0 };
 	int turn = 0;// 순서
 	int tmp = 0;// 옮길 구슬
@@ -247,7 +245,6 @@ public class Double_use extends JFrame {
 					}
 					int i;
 					System.out.println("1차례");
-					color = 1;
 
 					tmp = p[choice];
 					p[choice] = 0;

@@ -63,15 +63,31 @@ public class Main {
 	}
 
 	public void ThirdChange(String name) {
-		single_use.setVisible(false);
-		double_use.setVisible(false);
+		if(name.equals("1")) {
+			single_use.setVisible(false);
+		}else if(name.equals("2")) {
+			double_use.setVisible(false);
+		}
 		last.setVisible(true);
+		for(int i=0; i<14; i++) {
+			if(i==6 || i==13) {
+				single_use.p[i]=0;
+				double_use.p[i]=0;
+				continue;
+			}
+			single_use.p[i]=4;
+			double_use.p[i]=4;
+		}
+		single_use.repaint();
+		double_use.repaint();
 	}
 
 	public void LastChange(String name) {
+		
 		last.setVisible(false);
-		if (name.equals("restart"))
+		if (name.equals("restart")) {
 			start.setVisible(true);
+		}
 
 	}
 

@@ -1,4 +1,5 @@
 import java.awt.CardLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,12 +13,17 @@ public class Start extends JFrame {
 	private JButton Start_b;
 	private JButton Way_b;
 	ImageIcon backm;
+	
 
 	Start(Main m) {
 		setTitle("MANCALA");
 
 		backm = new ImageIcon("src/images/mainBack.jpg");
 		JLabel back = new JLabel(backm);
+		
+		JLabel mancala = new JLabel("MANCALA GAME");
+		mancala.setFont(new Font("µ¸À½", Font.BOLD, 90));
+		mancala.setBounds(120, 100, 800, 200);
 
 		setLayout(null);
 
@@ -39,6 +45,7 @@ public class Start extends JFrame {
 
 		back.add(Start_b);
 		back.add(Way_b);
+		back.add(mancala);
 
 		Way_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

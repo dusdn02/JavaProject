@@ -1,0 +1,66 @@
+
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+
+
+
+class Menu{
+	//1인용 2인용 선택
+	//(1인용일 경우, 난이도 선택)
+}
+
+public class Main{
+	public static void GameBoard(){
+	//게임판 모형 만들기
+	
+		JFrame frame = new JFrame("MANCALA");
+		frame.setPreferredSize(new Dimension(400,600));
+	
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		JFrame frame = new JFrame("MANCALA");
+		frame.setPreferredSize(new Dimension(400,600));
+	
+		
+		
+		
+		int[] p= {4,4,4,4,4,4,0,4,4,4,4,4,4,0};
+		int turn=0;//순서
+		int tmp=0;//옮길 구슬
+		
+	
+		
+		//2인용
+		while(true) {
+			
+			int choice = sc.nextInt();
+			if(turn%2==0) {
+				tmp = p[choice-1];
+				p[choice-1]=0;//선택한 곳에 있는 돌을 비운다.
+				//choice-1에 있는 돌들을 오른쪽에 하나씩 넣는다.
+				for(int i=0; i<tmp; i++) {
+					if((i+choice-1)>14)
+						p[i+choice-1]=0;//i+choice가 14가 넘으면 다시 1?0?로
+					p[i+choice-1]++;
+				}
+			}else {
+				tmp = p[choice+7-1];
+				p[choice+7-1]=0;
+			}
+			
+			//p에 아무 돌도 남지 않았을때 게임 끝
+			
+			turn++;
+		}
+
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}

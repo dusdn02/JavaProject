@@ -12,6 +12,7 @@ public class Last extends JFrame {
 	JButton exit;
 	JLabel whowin;
 	ImageIcon backm;
+	int n1,n2;
 
 	Last(Main m) {
 		setTitle("MANCALA");
@@ -30,25 +31,37 @@ public class Last extends JFrame {
 		exit = new JButton("그만하기");
 		whowin = new JLabel();
 		
-		switch(m.single_use.who) {
+		if(m.single_use.p[6]>m.single_use.p[13])
+			n1=1;
+		else if(m.single_use.p[6]<m.single_use.p[13])
+			n1=2;
+		else if(m.double_use.p[6]>m.double_use.p[13])
+			n1=3;
+		else if(m.double_use.p[6]<m.double_use.p[13])
+			n1=4;
+//		else
+//			n1=0;
+		
+		switch(n1) {
 		case 1:
 			whowin.setText("WIN");
 			break;
 		case 2:
 			whowin.setText("LOSE");
 			break;
-		}
-		switch(m.double_use.who) {
 		case 3:
 			whowin.setText("Player1 WIN");
 			break;
 		case 4:
 			whowin.setText("Player2 WIN");
 			break;
+		case 0:
+			whowin.setText("동점입니다~");
+			break;
 		}
 		
 		whowin.setFont(new Font("돋음",Font.BOLD, 30));
-		whowin.setBounds(200, 20, 300, 40);
+		whowin.setBounds(200, 20, 500, 300);
 	
 		restart.setBounds(300, 400, 150, 100);
 		restart.setFont(m.f);

@@ -186,7 +186,6 @@ public class Single_use extends JFrame {
 //				System.out.println("x:"+x+"  y:"+y);
 				choice = -1;
 				color = 0;
-
 				if (y >= 400 && y <= 570) {
 					if (x >= 190 && x <= 360) {
 						// m1
@@ -217,12 +216,11 @@ public class Single_use extends JFrame {
 
 				if (turn % 2 == 0) {// ³» Â÷·Ê
 					if (Main.No_ball_Endgame(p, com_sum, 0, 7) == true) {
-						who = 1;
 						m.ThirdChange("1");
+						return;
 					}
 					int i;
 					System.out.println("³»Â÷·Ê");
-					color = 1;
 
 					tmp = p[choice];
 					p[choice] = 0;
@@ -234,8 +232,8 @@ public class Single_use extends JFrame {
 					repaint();
 				} else {// ÄÄÇ»ÅÍ Â÷·Ê
 					if (Main.No_ball_Endgame(p, com_sum, 7, 13) == true) {
-						who = 2;
 						m.ThirdChange("1");
+						return;
 					}
 					int i = 1;
 					System.out.println("ÄÄÇ»ÅÍ Â÷·Ê");
@@ -254,7 +252,6 @@ public class Single_use extends JFrame {
 					Main.Get_ball(p, choice, i, 13);
 					
 					repaint();
-
 				}
 
 				if (turn % 2 == 0) {
